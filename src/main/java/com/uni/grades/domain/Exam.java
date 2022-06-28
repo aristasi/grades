@@ -1,5 +1,6 @@
 package com.uni.grades.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,6 +29,7 @@ public class Exam {
     private int succeedStudents;
     @Column(name = "average_grade")
     private BigDecimal averageGrade;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "lesson_id")
     private Lesson lesson;

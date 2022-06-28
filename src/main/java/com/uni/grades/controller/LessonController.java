@@ -26,7 +26,7 @@ public class LessonController {
     @PostMapping("/insert")
     public LessonDto insert(@RequestBody LessonDto lesson) {
         Lesson convertedLesson = lessonDtoToLessonConverter.convert(lesson);
-        lesson.getExams().forEach(exam -> exam.setLesson(convertedLesson));
+//        lesson.getExams().forEach(exam -> exam.setLesson(convertedLesson));
         return lessonService.save(lesson);
     }
 

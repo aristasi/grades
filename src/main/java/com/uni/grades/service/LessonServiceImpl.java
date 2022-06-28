@@ -30,6 +30,8 @@ public class LessonServiceImpl implements LessonService {
     @Override
     public LessonDto save(LessonDto lesson) {
         Lesson convertedLesson = lessonDtoToLessonConverter.convert(lesson);
+//        Lesson convertedLesson = lessonDtoToLessonConverter.convert(lesson);
+        convertedLesson.getExams().forEach(exam -> exam.setLesson(convertedLesson));
         Lesson saved = lessonRepository.save(convertedLesson);
         return lessonToLessonDtoConverter.convert(saved);
     }
